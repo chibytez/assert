@@ -1,25 +1,29 @@
-import models from '../models';
-import { signupVerifyErrors } from '../utils/constants/errorMessages';
+import { check, validationResult } from 'express-validator';
+import pullErrors from '../utils/helpers/pullErrors';
+import { userProfileErrors } from '../utils/constants/errorMessages';
 
-const { Validate } = models;
-
-/**
- * Signup verification middleware
- * @param {object} req - the request body
- * @param {object} res - the response body
- * @param {function} next - pass to next middleware
- * @returns {function} next
- */
-export const signupVerify = async (req, res, next) => {
-  const { token } = req.params;
-  const verifyEntry = await Validate.findOne({ where: { token } });
-  if (!verifyEntry) {
-    return res.status(404).json({ status: 404, error: signupVerifyErrors.notFound });
+const loginValidation = [
+  check('email')
+    .exists({ checkFalsy: true })
+    .withMessage(`email ${userProfileErrors.undefinedEmail}`)
+    .isEmail()
+    .withMessage(`email ${userProfileErrors.invalidEmail}`)
+    .matches(/@*.com$/)
+    .withMessage(`email ${userProfileErrors.nonAndelanEmail}`),
+  check('password')
+    .exists({ checkFalsy: true })
+    .withMessage(`password ${userProfileErrors.undefinedPassword}`),
+  async (req, res, next) => {
+    const { errors } = validationResult(req);
+    if (errors.length) {
+      const pulledErrors = pullErrors(errors);
+      return res.status(400).json({
+        status: 400,
+        error: pulledErrors
+      });
+    }
+    return next();
   }
+];
 
-  req.body.userId = verifyEntry.userId;
-
-  return next();
-};
-
-export default signupVerify;
+export default loginValidation;
