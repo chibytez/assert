@@ -33,7 +33,7 @@ export const signupErrors = {
     undefinedPassword: 'Password is required',
     invalidPassword: 'Password cannot be less than 8 characters',
     invalidEmail: 'Enter a valid email address',
-    nonAndelanEmail: 'Email should be an andela email',
+    nonAndelanEmail: 'Email should be an email',
     alphaNumericPassword: 'Password should be alphanumeric',
     undefinedGender: 'Gender is required',
     invalidGender: 'Gender should be either male or female',
