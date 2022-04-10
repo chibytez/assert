@@ -9,7 +9,7 @@
     "dev": "concurrently -k \"npm run start:dev\"",
     "start": "npm run build && node dist/index.js",
     "start:dev": "nodemon --inspect=0.0.0.0:9229 --exec babel-node src/index.js",
-    "heroku-postbuild": "npm run reverse && npm run migration && npm run seed",
+    "heroku-postbuild": "npm run migration",
     "lint": "eslint src/ --fix . && echo 'Lint complete.'",
     "migration": "sequelize db:migrate",
     "seed": "sequelize db:seed:all"
