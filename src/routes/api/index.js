@@ -12,7 +12,7 @@ usersRouter.use('/v1/auth', authRouter);
 
 usersRouter.get('/', (req, res) => res.status(200).send('Welcome to Shadowcat API'));
 
-
+usersRouter.use('/v1/users/profile', profileRoute);
 
 usersRouter.use((req, res) => {
   res.status(404).json({

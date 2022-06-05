@@ -6,11 +6,13 @@ export default {
     'Users',
     [
       {
-        firstname: 'Sylvanus',
-        lastname: 'Elendu',
-        email: 'chidimma.okafor.c@gmail.com',
-        password: bcrypt.hashSync('IamUser', 10),
         userId: uuidv4(),
+        firstname: 'Chibuike',
+        lastname: 'Aniaku',
+        email: 'chibuikeaniaku@gmail.com',
+        password: bcrypt.hashSync('Password8%', 10),
+        userId: uuidv4(),
+        isAdmin: true,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -18,8 +20,9 @@ export default {
         userId: uuidv4(),
         firstname: 'frank',
         lastname: 'chidinma',
-        email: 'stephenibaba@andela.com',
-        password: bcrypt.hashSync('Jennylove19', 10),
+        email: 'reginaanyaso.com',
+        password: bcrypt.hashSync('Password8%', 10),
+        isAdmin: true,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -28,7 +31,8 @@ export default {
         firstname: 'frank',
         lastname: 'chidinma',
         email: 'stepbaba@andela.com',
-        password: bcrypt.hashSync('Chibyke7&', 10),
+        password: bcrypt.hashSync('Password8%', 10),
+        isAdmin:true,
         createdAt: new Date(),
         updatedAt: new Date()
       }

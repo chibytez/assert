@@ -31,7 +31,7 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         required: false
       },
-      active: {
+      status: {
         type: DataTypes.BOOLEAN,
         required: false
       },

@@ -36,8 +36,13 @@ export default {
         defaultValue: false,
         allowNull: true,
       },
-      active: {
-        type: Sequelize.STRING,
+      status: {
+        type: Sequelize.ENUM,
+        defaultValue:'Pending',
+        values: [
+          'Paid',
+          'Pending',
+        ],
         allowNull: true,
       },
       notifyemail: {
