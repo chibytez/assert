@@ -112,7 +112,7 @@ class ProfileController {
       const { id } = req;
       const profileDetails = await (req.body);
       const {
-        firstname, lastname, email, gmail, facebook, gender, birthday,
+        firstname, lastname, email, phone, gmail, facebook, gender, birthday,
         address, nationality, state, lga
       } = profileDetails;
       const user = await Users.findOne({
@@ -123,6 +123,7 @@ class ProfileController {
           firstname,
           lastname,
           email,
+          phone,
           gmail,
           facebook,
           gender,
