@@ -21,21 +21,21 @@ const sendVerification = async (receiver, verificationToken) => {
   const msg = {
     to: receiver,
     from: `${process.env.WEB_MAIL_URL}`,
-    subject: 'Just a few more things',
-    text: 'Verify your email',
+    subject: 'Welcome To Assert',
+    text: 'Welcome to Assert',
     html: `
           <div style="display: flex; justify-content: center;">
             <div style="max-width: 400px; margin: 10px;">
-              <h2><span style="color: #5C6BC0">You are almost done!</span><br/> <span style="color: #37474F">Let us confirm your email address</span></h2>
+              <h2><span style="color: #5C6BC0">You are almost done!</span><br/> <span style="color: #37474F">We are happy to have you onboard</span></h2>
               <p>
-                By clicking on the following link, you are confirming your email
+                Click the link to login into the website
                 address
               </p>
               <div style="padding-top:10px">
-                <a href="${verificationUrl}" style="padding: 7px; text-transform: capitalize; border-radius: 3px; background-color:#5C6BC0; color: white; text-decoration: none">Confirm Email address</a>
+                <a href="${loginURL}" style="padding: 7px; text-transform: capitalize; border-radius: 3px; background-color:#5C6BC0; color: white; text-decoration: none">Login To our Site</a>
               </div>
               <div style="padding-top:10px">
-                <a href="${verificationUrl}" style="text-decoration: none">${verificationUrl}</a>
+                <a href="${loginURL}" style="text-decoration: none">${loginURL}</a>
               </div>
             </div>
           </div>
