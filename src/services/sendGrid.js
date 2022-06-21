@@ -32,10 +32,10 @@ const sendVerification = async (receiver, verificationToken) => {
                 address
               </p>
               <div style="padding-top:10px">
-                <a href="${loginURL}" style="padding: 7px; text-transform: capitalize; border-radius: 3px; background-color:#5C6BC0; color: white; text-decoration: none">Login To our Site</a>
+                <a href="https://www.assert.ng/login" style="padding: 7px; text-transform: capitalize; border-radius: 3px; background-color:#5C6BC0; color: white; text-decoration: none">Login To Explore Our Site</a>
               </div>
               <div style="padding-top:10px">
-                <a href="${loginURL}" style="text-decoration: none">${loginURL}</a>
+                <a href="https://www.assert.ng/login" style="text-decoration: none">Login</a>
               </div>
             </div>
           </div>
