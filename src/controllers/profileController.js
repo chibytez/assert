@@ -10,7 +10,7 @@ const response = new ResponseGenerator();
  * @description Handles User Profile
  */
 class ProfileController {
-    /**
+   /**
    * @static
   * @param  {object} req - Request object
   * @param {object} res - Response object
@@ -28,7 +28,7 @@ class ProfileController {
                 res,
                 404,
                 'user not found'
-              );
+               );
             }
             return response.sendSuccess(
               res,
@@ -188,7 +188,6 @@ class ProfileController {
             );
           }
           const { id } = req.params;
-          console.log('im here:', req.params);
           const profileDetails = await (req.body);
           const {
             firstname, lastname, email, phone, gmail, facebook, gender, birthday, status, isAdmin,
@@ -249,7 +248,54 @@ class ProfileController {
         }
       }
     
-    
+  /**
+   * @static
+  * @param  {object} req - Request object
+  * @param {object} res - Response object
+  * @param {object} next The next middleware
+  * @return {json} Returns json object
+   */
+   static async adminGetProfile(req, res, next) {
+    try {
+        const { id } = params;
+        console.log('user:',id);
+        const user = await Users.findOne({
+          where: { userId: id }
+        });
+        if (!user) {
+          return response.sendError(
+            res,
+            404,
+            'user not found'
+           );
+        }
+        return response.sendSuccess(
+          res,
+          200,
+          {
+            id: user.id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            userId: user.userId,
+            email: user.email,
+            gmail: user.gmail,
+            facebook: user.facebook,
+            phone: user.phone,
+            status: user.status,
+            isAdmin: user.isAdmin,
+            gender: user.gender,
+            birthday: user.birthday,
+            address: user.address,
+            nationality: user.nationality,
+            state: user.state,
+            lga: user.lga,
+          },
+          'success',
+        );
+      } catch (error) {
+        next(error);
+      }
+    }   
 
       
 
